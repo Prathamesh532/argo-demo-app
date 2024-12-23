@@ -2,12 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-app
+  namespace: dev
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app
   template:
+    metadata:
+      labels:
+        app: demo-app
     spec:
       containers:
         - name: demo-app
+          image: demo-app:dev # Ensure this is the correct image tag
           resources:
             requests:
               memory: "64Mi"
