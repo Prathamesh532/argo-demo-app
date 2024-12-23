@@ -4,7 +4,9 @@ metadata:
   name: demo-app
   namespace: prod
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app
   template:
     metadata:
       labels:
@@ -12,11 +14,11 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: prathameshkalekar/demo-app:dev
+          image: prathameshkalekar/demo-app:dev # Ensure this is the correct image tag
           resources:
             requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
               memory: "128Mi"
               cpu: "200m"
-            limits:
-              memory: "256Mi"
-              cpu: "400m"

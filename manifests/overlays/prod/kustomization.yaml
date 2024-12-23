@@ -2,14 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base # Reference to the base resources
-namespace: prod # Ensure the namespace is set here
-patches:
-  - path: patch.yaml # Patch file
-    target:
-      kind: Deployment # Specify the resource type
-      name: demo-app # Name of the deployment
-      namespace: prod # Ensure namespace is set here as well
+patchesStrategicMerge:
+  - patch.yaml
 images:
-  - name: prathameshkalekar/demo-app
-    newName: demo-app # New name of the image
-    newTag: dev # New tag for the image
+  - name: demo-app
+    newName: prathameshkalekar/demo-app
+    newTag: dev
