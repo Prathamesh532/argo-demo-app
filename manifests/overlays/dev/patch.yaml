@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: demo-app:dev # Ensure this is the correct image tag
+          image: prathameshkalekar/demo-app:dev # Ensure this is the correct image tag
           resources:
             requests:
               memory: "64Mi"
