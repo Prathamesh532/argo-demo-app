@@ -6,5 +6,5 @@ patchesStrategicMerge:
   - patch.yaml
 images:
   - name: demo-app
-    newName: demo-app
+    newName: demo-app:dev
     newTag: prod
