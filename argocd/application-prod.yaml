@@ -6,11 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/yourusername/gitops-demo.git
-    targetRevision: HEAD
+    repoURL: https://github.com/Prathamesh532/argo-demo-app.git
+    targetRevision: demo-1
     path: manifests/overlays/prod
   destination:
-    server: https://your-prod-cluster-api-url
+    server: https://kubernetes.default.svc
     namespace: demo-prod
   syncPolicy:
     automated:
