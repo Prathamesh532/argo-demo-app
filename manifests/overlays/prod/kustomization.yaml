@@ -1,10 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: prod # Set the namespace for the prod environment
 resources:
-  - ../../base # Reference to the base resources
-patchesStrategicMerge:
-  - patch.yaml
+  - ../../base # Reference the base folder
 images:
-  - name: demo-app
-    newName: prathameshkalekar/demo-app
-    newTag: dev
+  - name: prathameshkalekar/demo-app
+    newTag: prod # Specify the tag for the prod environment
+patches:
+  - path: patch.yaml # Optional: Use patch.yaml if you need to modify specific resources
